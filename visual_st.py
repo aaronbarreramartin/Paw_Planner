@@ -67,7 +67,7 @@ if __name__ == '__main__':
     st.set_page_config(page_title='Sirita', page_icon=':dog:')
     contraseña = st.secrets['contrasena']
     if st.text_input('Introduce la contraseña', type='password') == contraseña:
-        st.header(f'Este es el horario de hoy ({dt.date.today()}): ' )
+        st.subheader(f'Este es el horario de hoy ({dt.date.today()}): ' )
             
         mods = barra_lateral()
         horario_diario()
@@ -76,10 +76,11 @@ if __name__ == '__main__':
         if st.sidebar.button('Modificar'):     
             set_sheet_horario({'fecha': dt.date.today().strftime('%Y-%m-%d') , 'mañana': mods[0], 'tarde': mods[1], 'noche': mods[2]})
             st.rerun()
-        
-        df_registros = Hoja('Registro').df.sort_values(by='fecha', ascending=False)   
 
+        st.subheader('Registro:')
+        df_registros = Hoja('Registro').df.sort_values(by='fecha', ascending=False)   
         st.dataframe(df_registros, hide_index=True) 
+
 
 
 
