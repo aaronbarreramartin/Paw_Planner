@@ -32,8 +32,7 @@ def horario_diario():
 
 # En esta función se crea una imagen con el horario del día para hacerlo mas bonito visualmente
 def horario_imagen(horario: dict):
-    imagen = Image.new('RGB', (690, 240), color='white')
-    fondo = Image.new('RGB', (700, 250), color='black')
+    imagen = Image.new('RGB', (700, 250), color='white')
     
     fuente = ImageFont.truetype('visuales/PTF-NORDIC-Rnd.ttf', 50)
     dibujar_img = ImageDraw.Draw(imagen)
@@ -50,8 +49,7 @@ def horario_imagen(horario: dict):
     dibujar_img.rectangle((475, 75, 675, 225), fill=(153, 204, 255), outline='black') 
     dibujar_img.text((575, 160), horario['noche'], fill='black', font=fuente, anchor='mm')
 
-    fondo.paste(imagen, (5,5))
-    return fondo
+    return imagen
 
 # Muestra en pantalla los turnos que deben o le deben a cada persona
 def mostrar_contadores():
@@ -82,6 +80,7 @@ if __name__ == '__main__':
         df_registros = Hoja('Registro').df.sort_values(by='fecha', ascending=False)   
 
         st.dataframe(df_registros, hide_index=True) 
+
 
 
 
