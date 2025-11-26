@@ -1,3 +1,4 @@
+import streamlit as st
 import gspread
 from google.oauth2.service_account import Credentials
 import pandas as pd
@@ -58,4 +59,5 @@ def set_sheet_horario(hor_dic: dict):
     tarde = hor_dic['tarde']
     noche = hor_dic['noche']
     horario.sheet.update(range_name='A2:D2', values=[[fecha, mañana, tarde, noche]])
+
 
