@@ -12,11 +12,10 @@ SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 creds_json = st.secrets["credenciales"]
 credenciales = json.loads(creds_json)
 
-creds = Credentials.from_service_account_file(credenciales, scopes=SCOPES)
+creds = Credentials.from_service_account_info(credenciales, scopes=SCOPES)
 client = gspread.authorize(creds)
 
-SPREADSHEET_ID = '17qcQqyqn4gP4qm5zmmzBpLkJP9Z1vsfFBJlFDl0nXjg'
-sh = client.open_by_key(SPREADSHEET_ID)
+sh = client.open_by_key(st.secrets['SPREADSHEET_ID'])
 
 # Los objetos de esta clase representan una hoja de google sheets, seleccionada por el nombre que se le introduzca
 # De esta forma será más fácil jugar con sus propiedades
@@ -60,6 +59,7 @@ def set_sheet_horario(hor_dic: dict):
     tarde = hor_dic['tarde']
     noche = hor_dic['noche']
     horario.sheet.update(range_name='A2:D2', values=[[fecha, mañana, tarde, noche]])
+
 
 
 
