@@ -1,14 +1,9 @@
 import streamlit as st  #py -m streamlit run visual_st.py
 import datetime as dt
 from PIL import Image, ImageDraw, ImageFont
-import yaml
-from yaml.loader import SafeLoader
-import streamlit_authenticator as stauth
 
 from acc_sheets import añadir_reg, Hoja, set_sheet_horario
 from transf_datos import hor_to_dict, crear_hor, lista_contadores
-   
-contraseña = '1234Qwer!'
 
 # Configurando la barra lateral para que de la opcion de modificar el horario actual
 def barra_lateral():
@@ -81,4 +76,5 @@ if __name__ == '__main__':
             st.rerun()
         
         df_registros = Hoja('Registro').df.sort_values(by='fecha', ascending=False)   
+
         st.dataframe(df_registros, hide_index=True) 
