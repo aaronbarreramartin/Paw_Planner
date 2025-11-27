@@ -60,6 +60,9 @@ def set_sheet_horario(hor_dic: dict):
     noche = hor_dic['noche']
     horario.sheet.update(range_name='A2:D2', values=[[fecha, mañana, tarde, noche]])
 
-
-
-
+# Esta función elimina un registro por su fecha
+def eliminar_registro(fecha):
+    horario = Hoja('Registro')
+    registro = horario.sheet.find(fecha)  
+    if registro != None:
+        horario.sheet.delete_rows(registro.row) 
