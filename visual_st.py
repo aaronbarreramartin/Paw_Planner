@@ -67,11 +67,11 @@ if __name__ == '__main__':
     st.set_page_config(page_title='Horario para perro', page_icon=':dog:')
     contraseña = st.secrets['contrasena']
     col1, col2 = st.columns([2,1])
-    with col1:
+    with col1 and st.container():
         with st.container:
             intro_cntrs = st.text_input('Introduce la contraseña', type='password')
     with col2:
-        with st.container:
+        with st.container():
             invitado = st.button('Entrar como invitado')
     
     if intro_cntrs == contraseña or invitado:
@@ -99,6 +99,7 @@ if __name__ == '__main__':
             st.dataframe(df_registros, hide_index=True) 
         else:
             st.info('Vacío')
+
 
 
 
