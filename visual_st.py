@@ -64,7 +64,7 @@ def mostrar_contadores():
             cols[i].text(f'{persona[0]} ha hecho todos sus turnos!')
 
 if __name__ == '__main__':
-    st.set_page_config(page_title='Sirita', page_icon=':dog:')
+    st.set_page_config(page_title='Horario para perro', page_icon=':dog:')
     contraseña = st.secrets['contrasena']
     if st.text_input('Introduce la contraseña', type='password') == contraseña:
         st.subheader(f'Este es el horario de hoy ({dt.date.today()}): ' )
@@ -90,6 +90,7 @@ if __name__ == '__main__':
             st.dataframe(df_registros, hide_index=True) 
         else:
             st.info('Vacío')
+
 
 
 
