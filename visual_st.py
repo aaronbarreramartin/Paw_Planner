@@ -68,7 +68,7 @@ if __name__ == '__main__':
     contraseña = st.secrets['contrasena']
     intro_cntrs = st.text_input('Introduce la contraseña', type='password')
     invitado = False
-    if intro_cntrs != contraseña or not invitado:
+    if intro_cntrs != contraseña and not invitado:
         invitado = st.button('Entrar como invitado')    
     else:
         st.subheader(f'Este es el horario de hoy ({dt.date.today()}): ' )
@@ -95,6 +95,7 @@ if __name__ == '__main__':
             st.dataframe(df_registros, hide_index=True) 
         else:
             st.info('Vacío')
+
 
 
 
