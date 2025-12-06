@@ -66,7 +66,9 @@ def mostrar_contadores():
 if __name__ == '__main__':
     st.set_page_config(page_title='Horario para perro', page_icon=':dog:')
     contraseña = st.secrets['contrasena']
-    if st.text_input('Introduce la contraseña', type='password') == contraseña:
+    intro_cntrs = st.text_input('Introduce la contraseña', type='password')
+    invitado = st.button('Entrar como invitado')
+    if intro_cntrs == contraseña or invitado:
         st.subheader(f'Este es el horario de hoy ({dt.date.today()}): ' )
             
         mods = barra_lateral()
@@ -75,13 +77,13 @@ if __name__ == '__main__':
 
         st.divider()
                 
-        if st.sidebar.button('Modificar'):     
+        if st.sidebar.button('Modificar') and not invitado:     
             set_sheet_horario({'fecha': dt.date.today().strftime('%Y-%m-%d') , 'mañana': mods[0], 'tarde': mods[1], 'noche': mods[2]})
             st.rerun()
 
         st.sidebar.divider()
         fecha = st.sidebar.date_input('Elimina un registro por su fecha:').strftime('%Y-%m-%d')
-        eliminar_registro(fecha)
+        if not invitado: eliminar_registro(fecha)
         
         st.subheader('Registro:')
         df_registros = Hoja('Registro').df
@@ -90,6 +92,7 @@ if __name__ == '__main__':
             st.dataframe(df_registros, hide_index=True) 
         else:
             st.info('Vacío')
+
 
 
 
