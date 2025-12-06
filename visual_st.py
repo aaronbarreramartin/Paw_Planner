@@ -66,11 +66,13 @@ def mostrar_contadores():
 if __name__ == '__main__':
     st.set_page_config(page_title='Horario para perro', page_icon=':dog:')
     contraseña = st.secrets['contrasena']
-    intro_cntrs = st.text_input('Introduce la contraseña', type='password')
-    invitado = False
-    if intro_cntrs != contraseña and not invitado:
-        invitado = st.button('Entrar como invitado')    
-    else:
+    col1, col2 = st.columns(2,1)
+    with col1:
+        intro_cntrs = st.text_input('Introduce la contraseña', type='password')
+    with col2:
+        invitado = st.button('Entrar como invitado')
+    
+    if intro_cntrs == contraseña or invitado:
         st.subheader(f'Este es el horario de hoy ({dt.date.today()}): ' )
             
         mods = barra_lateral()
@@ -95,6 +97,7 @@ if __name__ == '__main__':
             st.dataframe(df_registros, hide_index=True) 
         else:
             st.info('Vacío')
+
 
 
 
