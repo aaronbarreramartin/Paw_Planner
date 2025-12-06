@@ -77,12 +77,9 @@ if __name__ == '__main__':
 
         st.divider()
                 
-        if not invitado:        
-            if st.sidebar.button('Modificar') and not invitado:     
-                set_sheet_horario({'fecha': dt.date.today().strftime('%Y-%m-%d') , 'mañana': mods[0], 'tarde': mods[1], 'noche': mods[2]})
-                st.rerun()
-        else:
-            if st.sidebar.button('Modificar'): st.sidebar.warning('No se puede modificar nada como invitado')
+        if st.sidebar.button('Modificar') and not invitado:     
+            set_sheet_horario({'fecha': dt.date.today().strftime('%Y-%m-%d') , 'mañana': mods[0], 'tarde': mods[1], 'noche': mods[2]})
+            st.rerun()
             
         st.sidebar.divider()
         fecha = st.sidebar.date_input('Elimina un registro por su fecha:').strftime('%Y-%m-%d')
@@ -96,6 +93,7 @@ if __name__ == '__main__':
             st.dataframe(df_registros, hide_index=True) 
         else:
             st.info('Vacío')
+
 
 
 
