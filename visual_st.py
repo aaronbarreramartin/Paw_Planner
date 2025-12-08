@@ -70,7 +70,7 @@ if __name__ == '__main__':
     with col1:
         intro_cntrs = st.text_input('Introduce la contraseña', type='password')
     with col2:
-        invitado = st.button('Entrar como invitado')
+        invitado = st.button('Entrar sin permisos')
     
     if intro_cntrs == contraseña or invitado:
         st.subheader(f'Este es el horario de hoy ({dt.date.today()}): ' )
@@ -97,6 +97,7 @@ if __name__ == '__main__':
             st.dataframe(df_registros, hide_index=True) 
         else:
             st.info('Vacío')
+
 
 
 
