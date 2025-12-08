@@ -8,7 +8,7 @@ se puede utilizar sin problema ejecutando el script visual_st.py. Probablemente 
 
 ## Funcionamiento
 En terminos de interfaz de usuario, lo que hace la web es lo siguiente. 
-Principalmente, muestra el horario deldia actual, seguido de los turnos de más o de menos que ha hecho cada persona (registrados en la hoja de cálculo "Contador"), y por último muestra el registro de los turnos ya hechos de cada día. 
+Principalmente, muestra el horario del día actual, seguido de los turnos de más o de menos que ha hecho cada persona (registrados en la hoja de cálculo "Contador"), y por último muestra el registro de los turnos ya hechos de cada día. 
 A la izquierda, se muestra también una barra lateral, en la cual se puede modificar el horario del día actual en caso de que no se cumpla el propuesto por el algoritmo del programa. 
 También permite eliminar el registro de un día concreto por su fecha.
   
