@@ -1,4 +1,4 @@
-import streamlit as st  #py -m streamlit run visual_st.py
+import streamlit as st  
 import datetime as dt
 from PIL import Image, ImageDraw, ImageFont
 
@@ -97,6 +97,7 @@ if __name__ == '__main__':
             st.dataframe(df_registros, hide_index=True) 
         else:
             st.info('Vacío')
+
 
 
 
