@@ -93,7 +93,8 @@ if __name__ == '__main__':
         st.subheader('Registro:')
         df_registros = Hoja('Registro').df
         if not df_registros.empty:
-            df_registros.sort_values(by='fecha', ascending=True)   
-            st.dataframe(df_registros, hide_index=True) 
+            df_registros.sort_values(by='fecha', ascending=False)   
+            st.dataframe(df_registros, hide_index=False) 
         else:
             st.info('Vacío')
+
