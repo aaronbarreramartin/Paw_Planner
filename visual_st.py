@@ -94,7 +94,8 @@ if __name__ == '__main__':
         df_registros = Hoja('Registro').df
         if not df_registros.empty:
             df_registros.sort_values(by='fecha', ascending=False)   
-            st.dataframe(df_registros, hide_index=False) 
+            st.dataframe(df_registros, hide_index=True) 
         else:
             st.info('Vacío')
+
 
