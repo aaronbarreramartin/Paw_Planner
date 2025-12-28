@@ -88,7 +88,7 @@ if __name__ == '__main__':
         st.sidebar.divider()
         fecha = st.sidebar.date_input('Elimina un registro por su fecha:').strftime('%Y-%m-%d')
         if not invitado: eliminar_registro(fecha)
-        else: st.sidebar.warning('No se puede modificar nada como invitado')
+        else: st.sidebar.warning('No se puede modificar nada sin permisos')
                 
         st.subheader('Registro:')
         df_registros = Hoja('Registro').df
@@ -97,5 +97,6 @@ if __name__ == '__main__':
             st.dataframe(df_registros, hide_index=True) 
         else:
             st.info('Vacío')
+
 
 
