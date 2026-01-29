@@ -4,15 +4,9 @@ import datetime
 # Esta funcion devuelve una lista con el nombre de la persona, su contador (que refleja los dias que ha hecho de mas o de menos),
 # y el turno que se le debe asignar por , con el formato: [['nombre', contador, 'turno'], ['nombre2', contador2, 'turno2'], ...]
 def lista_contadores():
-    lista = []
     df_contador = datos.Hoja('Contador').df
-    for nombre in df_contador:
-        num = int(df_contador.loc[0,nombre])
-        turno = str(df_contador.loc[1,nombre])
-        lista.append([nombre, num, turno])   
-    
+    lista = [[nombre, int(df_contador.loc[0,nombre]), str(df_contador.loc[1,nombre])] for nombre in df_contador]
     lista.sort(key=lambda x: x[1])
-    
     return lista
 
 # Accede a la funcion que actualiza el horario actual
@@ -71,4 +65,5 @@ def crear_hor(horario):
     act_horario(horario)
     
     return horario
+
 
